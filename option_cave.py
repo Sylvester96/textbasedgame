@@ -1,25 +1,34 @@
 import time
+import option_run
+import conf
+import option_run
+
+
 def option_cave():
     print("\nYou are hesitant, since the cave was dark, creepy and "
     "ominous. Before you completely enter, you notice a shiny knightly sword lying on "
-    "the ground. Do you pick up a sword? (Y/N)")
+    "the ground. Do you pick up a sword? (y/n)")
+
     choice = input(">>> ").lower().strip()
-    if choice in yes:
-        sword = 1
+    if choice in conf.yes:
+        conf.sword = 1
     else:
-        sword = 0
+        conf.sword = 0
     print("\nWhat do you do next?")
+
     time.sleep(2)
+
     print("""A. Hide in silence
     B. Fight
     C. Run""")
+
     choice = input(">>> ")
-    if choice in answer_A:
+    if choice in conf.answer_A:
         print("\nYou're really going to hide in the dark? I think "
         "ogres can see very well in the dark, so...\n\nYou dead! "
         "GAME OVER!!")
-    elif choice in answer_B:
-        if sword > 0:
+    elif choice in conf.answer_B:
+        if conf.sword > 0:
             print("\nYou stay and wait. The shimmering sword attractS "
             "the ogre, which underestimates you and thinks you were no match. As he walks "
             "closer and closer, your heart beats rapidly. As the ogre "
@@ -29,11 +38,11 @@ def option_cave():
             print("\nYou should've picked the sword. You're "
             "defenseless. \n\nYou dead! " 
             "GAME OVER!!")
-    elif choice in answer_C:
+    elif choice in conf.answer_C:
         print ("As the ogre enters the dark cave, you silently "
         "sneak out. While trying to sneak out, your sword accidentally drops and the ogre hears it. It immediately turns to your direction "
         "and runs after you.")
-        option_run()
+        option_run.option_run()
     else:
-        print (required)
+        print (conf.required)
         option_cave() 
